@@ -1,0 +1,25 @@
+<div class="card-header">
+    <div class="row">
+      <div class="col-11">
+        <div>#{{project.Id}}</div>
+        <h5>{{project.Name}}</h5>
+      </div>
+      <div class="col-1">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div> 
+  <div class="card-body">
+    <table class="table table-borderless" >
+      <tr>
+        <th>Locatoin</th>
+        <td>{{project.Locatoin}}</td>
+      </tr>
+      
+    </table>
+  </div>
+
+  <!-- <div class="card-footer">
+    <button class="btn btn-info" (click)="onEditClick($event, i)" data-toggle="modal" data-target="#editModal">Edit</button>&nbsp;
+    <button class="btn btn-warning" (click)="onDeleteClick($event, i)" data-toggle="modal" data-target="#deleteModal">Delete</button>
+  </div> -->

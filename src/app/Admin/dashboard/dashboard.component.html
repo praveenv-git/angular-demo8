@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+  <a class="navbar-brand" href="#">
+      Angular Task Manager
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mynav">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" [routerLink]=" [ '/admin', 'dashboard' ] ">Dashboard</a>
+          </li> 
+          <li class="nav-item" >
+            <a class="nav-link" [routerLink]=" [ '/admin', 'projects' ] ">Projects</a>
+        </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" [routerLink]=" [ '/about' ] ">About</a>
+          </li>
+          
+          <li class="nav-item" *ngIf="loginService.currentUserName != null">
+              <a class="nav-link" href="#">{{loginService.currentUserName}}</a>
+          </li>
+          <li class="nav-item" *ngIf="loginService.currentUserName != null">
+              <a class="nav-link" href="#" (click)="loginService.Logout()">Logout</a>
+          </li>
+          <li class="nav-item" *ngIf="loginService.currentUserName == null">
+              <a class="nav-link" [routerLink]=" [ '/login' ] ">Login</a>
+          </li>
+          <li class="nav-item" *ngIf="loginService.currentUserName == null">
+              <a class="nav-link" [routerLink]=" [ '/signup' ] ">Sign Up</a>
+          </li> -->
+      </ul>
+      <span >  <a class="nav-link signout" [routerLink]=" [ '/login' ] ">Sign Out</a></span>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-6" style="padding:120px;">
+    <div class="row" style="padding:0px 0px 0px 90px"><span>Expense Type</span>
+      <div class="col-4">
+        <select class="form-control" id="drpExpence" [(ngModel)]="typeSelectedId" (change)="drpSelectChange()" >
+          <option value="0">All</option>
+          <option  [value]="type.Id"  *ngFor="let type of ExpensTypeList" >{{type.Name}}</option>        
+        </select>
+      </div>
+      <!-- <div class="col-2">
+        <button class="btn btn-primary" >Search</button>
+      </div> -->
+    </div>
+    
+    <div id="chartContainer" ></div>
+  </div>
+
+  <div class="col-6" style="padding:120px;">
+    <div id="chartContainer1" ></div>
+  </div>
+</div>
+<div class="col-20" style="padding: 300px;">
+  <table class="table">
+    <tr class="trColor">
+      <th>Date  </th>
+      <th>Name</th>
+      <th>Project Name</th>
+      <th>Location</th>
+    </tr>
+    <tr *ngFor = "let calSumary of CalendarDetails,"  [ngStyle]="{backgroundColor: calSumary.StrDate | formatDate} ">
+      <td>
+        <b>{{calSumary.StrDate  }}</b>
+      </td>
+      <td>
+        {{calSumary.name}}
+      </td>
+      <td>
+        {{calSumary.ProjectName}}
+      </td>
+      <td>
+        {{calSumary.Area}}
+      </td>
+    </tr>
+    
+  </table>
+
+  
+</div>

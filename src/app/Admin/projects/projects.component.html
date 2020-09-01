@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+    <a class="navbar-brand" href="#">
+        Angular Task Manager
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]=" [ '/admin', 'dashboard' ] ">Dashboard</a>
+            </li> 
+            <li class="nav-item active" >
+              <a class="nav-link" [routerLink]=" [ '/admin', 'projects' ] ">Projects</a>
+          </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]=" [ '/about' ] ">About</a>
+            </li>
+            
+            <li class="nav-item" *ngIf="loginService.currentUserName != null">
+                <a class="nav-link" href="#">{{loginService.currentUserName}}</a>
+            </li>
+            <li class="nav-item" *ngIf="loginService.currentUserName != null">
+                <a class="nav-link" href="#" (click)="loginService.Logout()">Logout</a>
+            </li>
+            <li class="nav-item" *ngIf="loginService.currentUserName == null">
+                <a class="nav-link" [routerLink]=" [ '/login' ] ">Login</a>
+            </li>
+            <li class="nav-item" *ngIf="loginService.currentUserName == null">
+                <a class="nav-link" [routerLink]=" [ '/signup' ] ">Sign Up</a>
+            </li> -->
+        </ul>
+        <span>  <a class="nav-link signout" [routerLink]=" [ '/login' ] ">Sign Out</a></span>
+    </div>
+  </nav>
+  <h1>
+    Projects
+    <i class="fa fa-circle-o-notch fa-spin" style="font-size:34px" *ngIf="showLoading"></i>
+  </h1> 
+  <!-- <div class="col-12">
+    <table class="table">
+      <tr>
+        <th>Project Name</th>
+        <th>Location</th>
+        
+      </tr>
+      <tr *ngFor="let prj of projects">
+        <td>
+          <b>{{prj.Name}}</b>
+        </td>
+        <td>
+          {{prj.Locatoin}}
+        </td>
+        
+      </tr>
+
+    </table>
+  </div> -->
+  <div class="row">
+    <div class="col-4">
+      <app-project [currentProject]="projects" ></app-project>
+    </div>
+  </div>
+
+  
+  
